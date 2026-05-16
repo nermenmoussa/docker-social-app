@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
 
-frontend:
+  frontend:
     image: nermenmoussa/social-frontend:1.0
     build:
       context: ./frontend
@@ -17,7 +17,7 @@ frontend:
     depends_on:
       - backend
 
-backend:
+  backend:
     image: nermenmoussa/social-backend:1.0
     ports:
       - "5000:5000"
@@ -31,7 +31,7 @@ backend:
     depends_on:
       - mongo
 
-mongo:
+  mongo:
     image: mongo:latest
     volumes:
       - mongo-data:/data/db
