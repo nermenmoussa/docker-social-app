@@ -2,9 +2,8 @@ version: '3.8'
 
 services:
 
-  # ── Frontend (Next.js) ─────────────────────
   frontend:
-    image: YOUR_DOCKERHUB_USERNAME/social-frontend:1.0
+    image: nermenmoussa/social-frontend:1.0
     ports:
       - "3000:3000"
     environment:
@@ -14,9 +13,8 @@ services:
     depends_on:
       - backend
 
-  # ── Backend (Node.js) ──────────────────────
   backend:
-    image: YOUR_DOCKERHUB_USERNAME/social-backend:1.0
+    image: nermenmoussa/social-backend:1.0
     ports:
       - "5000:5000"
     environment:
@@ -29,7 +27,6 @@ services:
     depends_on:
       - mongo
 
-  # ── Database (MongoDB) ─────────────────────
   mongo:
     image: mongo:latest
     volumes:
@@ -37,13 +34,12 @@ services:
     networks:
       - backend
 
-# ── Networks ───────────────────────────────
 networks:
   frontend:
     driver: bridge
   backend:
     driver: bridge
 
-# ── Volumes ────────────────────────────────
 volumes:
   mongo-data:
+EOF
